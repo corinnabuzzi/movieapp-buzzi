@@ -8,6 +8,49 @@ Traccia: https://github.com/lukeku62/esame-frontend
 
 ---
 
+## Come aprire in locale
+
+Clona la repo e servila con un server HTTP locale — i moduli ES6 non funzionano aprendo i file direttamente dal filesystem.
+
+Con Live Server (VS Code): tasto destro su `index.html` → *Open with Live Server*
+
+Con Node.js:
+```
+npx serve .
+```
+Poi apri `http://localhost:3000` nel browser.
+
+## API Key
+
+Le chiamate TMDB richiedono una API key personale.
+
+1. Registrati su [themoviedb.org](https://www.themoviedb.org/) e ottieni una API key dalla sezione impostazioni → API
+2. Crea il file `js/config.js` (escluso da Git) con:
+
+```js
+const API_KEY = "la-tua-api-key";
+```
+
+Il file non va committato — è già in `.gitignore`.
+
+## Endpoint TMDB utilizzati
+
+Base URL: `https://api.themoviedb.org/3`. Tutti i parametri includono `&language=it-IT`.
+
+| Pagina | Endpoint | Note |
+|---|---|---|
+| Home — film | `GET /trending/movie/day` | Film di tendenza del giorno |
+| Home — serie | `GET /trending/tv/day` | Serie di tendenza del giorno |
+| `movies.html` | `GET /movie/popular` | Film più popolari |
+| `series.html` | `GET /tv/popular` | Serie più popolari |
+| `detail.html` (film) | `GET /movie/{id}` | Dettaglio singolo film |
+| `detail.html` (serie) | `GET /tv/{id}` | Dettaglio singola serie |
+| `detail.html` (credits) | `GET /movie/{id}/credits` o `/tv/{id}/credits` | Cast e crew, fetch in parallelo con `Promise.all` |
+
+Immagini: `https://image.tmdb.org/t/p/w500{poster_path}` (poster) / `https://image.tmdb.org/t/p/w1280{backdrop_path}` (hero dettaglio)
+
+---
+
 # Devlog 
 
 ## 0 — Init repo e struttura cartelle
