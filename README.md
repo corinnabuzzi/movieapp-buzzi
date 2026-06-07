@@ -95,3 +95,16 @@ Creati `js/movies.js` e `js/series.js` con:
 - `createCard(item, type)` — identica a quella in `main.js` (duplicazione consapevole, no moduli)
 - `init()` — chiama rispettivamente `fetchPopularMovies` e `fetchPopularSeries` con `try/catch`
 - `init()` chiamata direttamente a fine file
+
+---
+
+## 3 — profile.html
+
+Creata `profile.html` con:
+
+- Hero con nome autore
+- Header profilo: avatar con iniziali, nome, data iscrizione, link GitHub
+- Griglia profili: card con iniziali, stato attivo, card "Aggiungi" con bordo tratteggiato
+- Sezione bio con testo placeholder
+- Nessuna chiamata API — pagina interamente statica
+- CSS aggiunto a `style.css`: `.profile-header-section`, `.profile-avatar-large`, `.profile-grid`, `.profile-card`, `.profile-badge`
