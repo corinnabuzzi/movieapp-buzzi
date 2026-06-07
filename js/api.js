@@ -39,3 +39,10 @@ async function fetchDetail(id, type) {
   if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
   return response.json();
 }
+
+async function fetchCredits(id, type) {
+  const url = `${BASE_URL}/${type}/${id}/credits?api_key=${API_KEY}&language=it-IT`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
+  return response.json();
+}
