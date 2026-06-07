@@ -246,4 +246,4 @@ Il container parte con un messaggio "Caricamento..." visibile mentre la fetch è
 
 Quando `renderDetail` esegue, sovrascrive l'intero `innerHTML` del container con il contenuto reale. È il pattern più semplice per gestire uno stato di caricamento senza librerie.
 
-![detail-page-v1](img/v2-con-grid.png)
+![detail-page-v1](img/details-v1.png)
