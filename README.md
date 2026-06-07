@@ -39,6 +39,8 @@ Creati `index.html` e `css/style.css` con i minimi requisiti strutturali:
 - `<footer>`
 - CSS: reset, dark background, griglia card con `auto-fill`, stile card minimale, media query per mobile
 
+![Base version](img/v0-base.png)
+
 ### Redesign e SSOT definition
 
 Ridefinita l'estetica e stabilita la SSOT visiva tramite CSS custom properties:
@@ -60,6 +62,8 @@ Ridefinita l'estetica e stabilita la SSOT visiva tramite CSS custom properties:
 - Sezioni separate da `border-top` sottile
 - Navbar con `backdrop-filter: blur(8px)`
 - Card: `border-radius: 4px`, hover solo `translateY(-3px)`
+
+![redesigned version](img/v1-redesign.png)
 
 ---
 
@@ -96,6 +100,8 @@ Creati `js/movies.js` e `js/series.js` con:
 - `init()` — chiama rispettivamente `fetchPopularMovies` e `fetchPopularSeries` con `try/catch`
 - `init()` chiamata direttamente a fine file
 
+![grid-version](img/v2-con-grid.png)
+
 ---
 
 ## 3 — profile.html
@@ -108,6 +114,9 @@ Creata `profile.html` con:
 - Sezione bio con testo placeholder
 - Nessuna chiamata API — pagina interamente statica
 - CSS aggiunto a `style.css`: `.profile-header-section`, `.profile-avatar-large`, `.profile-grid`, `.profile-card`, `.profile-badge`
+
+![profile-page](img/profilo.png)
+
 
 ---
 
@@ -236,3 +245,5 @@ Il container parte con un messaggio "Caricamento..." visibile mentre la fetch è
 ```
 
 Quando `renderDetail` esegue, sovrascrive l'intero `innerHTML` del container con il contenuto reale. È il pattern più semplice per gestire uno stato di caricamento senza librerie.
+
+![detail-page-v1](img/v2-con-grid.png)
