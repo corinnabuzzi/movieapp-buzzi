@@ -1,6 +1,9 @@
 function createCard(item, type) {
   const card = document.createElement("div");
   card.classList.add("card");
+  card.addEventListener("click", () => {
+    window.location.href = `detail.html?id=${item.id}&type=${type}`;
+  });
 
   const title = type === "movie" ? item.title : item.name;
   const date = type === "movie" ? item.release_date : item.first_air_date;
