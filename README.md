@@ -3,7 +3,7 @@
 Progetto d'esame, modulo Frontend JS @ ITS Tech Talent Factory, 2026.
 
 Autore: Buzzi Corinna
-Traccia: \[link]
+Traccia: [[repo d'esame]](https://github.com/lukeku62/esame-frontend)
 
 ---
 
