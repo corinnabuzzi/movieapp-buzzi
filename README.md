@@ -395,3 +395,21 @@ js/
 ├── series.js   — init() pagina serie
 └── detail.js   — init() pagina dettaglio
 ```
+
+---
+
+## 7 — Loading state sulle griglie
+
+Le pagine `index.html`, `movies.html` e `series.html` mostrano ora un
+messaggio "Caricamento..." mentre la fetch è in corso, lo stesso pattern
+già usato su `detail.html`.
+
+Il messaggio è scritto direttamente nell'HTML, dentro il grid:
+
+```html
+<div class="card-grid" id="movies-grid">
+  <p class="loading-msg">Caricamento...</p>
+</div>
+```
+
+Non serve nessuna modifica a JavaScript: `renderCards` fa già `grid.innerHTML = ""` come prima istruzione, sovrascrivendo il messaggio quando i dati arrivano. Il `catch` di ogni `try/catch` sovrascrive con il messaggio di errore se la fetch fallisce.
