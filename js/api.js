@@ -32,3 +32,10 @@ async function fetchPopularSeries() {
   const data = await response.json();
   return data.results;
 }
+
+async function fetchDetail(id, type) {
+  const url = `${BASE_URL}/${type}/${id}?api_key=${API_KEY}&language=it-IT`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
+  return response.json();
+}
