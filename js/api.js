@@ -16,3 +16,19 @@ async function fetchTrendingSeries() {
   const data = await response.json();
   return data.results;
 }
+
+async function fetchPopularMovies() {
+  const url = `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=it-IT`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
+  const data = await response.json();
+  return data.results;
+}
+
+async function fetchPopularSeries() {
+  const url = `${BASE_URL}/tv/popular?api_key=${API_KEY}&language=it-IT`;
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Errore HTTP: ${response.status}`);
+  const data = await response.json();
+  return data.results;
+}
