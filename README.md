@@ -8,9 +8,9 @@ Traccia: https://github.com/lukeku62/esame-frontend
 
 ---
 
-## Devlog 
+# Devlog 
 
-### Init repo e struttura cartelle
+## 0 — Init repo e struttura cartelle
 
 Creata la repo e la struttura base del progetto:
 
@@ -30,7 +30,7 @@ movie-app/
     └── series.js
 ```
 
-### HTML e CSS base
+## 1 — HTML e CSS
 
 Creati `index.html` e `css/style.css` con i minimi requisiti strutturali:
 
@@ -60,3 +60,38 @@ Ridefinita l'estetica e stabilita la SSOT visiva tramite CSS custom properties:
 - Sezioni separate da `border-top` sottile
 - Navbar con `backdrop-filter: blur(8px)`
 - Card: `border-radius: 4px`, hover solo `translateY(-3px)`
+
+---
+
+## 2 — JS e fetch TMDB
+
+### config.js
+
+Creato `js/config.js` con la costante `API_KEY`. File escluso da Git.
+
+### api.js
+
+Creato `js/api.js` con:
+
+- Costanti `BASE_URL` e `IMG_BASE_URL`
+- `fetchTrendingMovies()` → `/trending/movie/day`
+- `fetchTrendingSeries()` → `/trending/tv/day`
+- `fetchPopularMovies()` → `/movie/popular`
+- `fetchPopularSeries()` → `/tv/popular`
+
+### main.js
+
+Creato `js/main.js` con:
+
+- `createCard(item, type)` — genera un `<div class="card">` con poster (o placeholder) + titolo + anno
+- `renderCards(items, gridId, type)` — svuota il grid e appende le card
+- `init()` — funzione `async` che chiama `fetchTrendingMovies` e `fetchTrendingSeries` con `try/catch` separati, mostra messaggio di errore inline in caso di fallimento
+- `init()` chiamata direttamente a fine file
+
+### movies.js e series.js
+
+Creati `js/movies.js` e `js/series.js` con:
+
+- `createCard(item, type)` — identica a quella in `main.js` (duplicazione consapevole, no moduli)
+- `init()` — chiama rispettivamente `fetchPopularMovies` e `fetchPopularSeries` con `try/catch`
+- `init()` chiamata direttamente a fine file
