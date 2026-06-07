@@ -346,3 +346,52 @@ const creators = item.created_by?.map(p => p.name) || [];
 L'operatore `?.` (optional chaining) evita un errore se `created_by` è `undefined` — restituisce `undefined` invece di lanciare un'eccezione, che l'`|| []` converte in array vuoto.
 
 ![detail-page-v2](img/details-v2-redesigned.png)
+
+---
+
+---
+
+## 6 — Refactor: utils.js e deduplicazione
+
+Scrivendo i js, ho notato di avere la stessa funzione in tre file diversi, quindi, nonostante questo refactor non era richiesto dalla traccia, l'ho fatto per seguire prassi di clean code.
+ 
+Ho spostato `createCard` e `renderCards` in un unico file, `utils.js`, e questo elimina la fragilità e rende la struttura del codice più leggibile.
+
+### Problema
+
+`createCard(item, type)` era duplicata in `main.js`, `movies.js` e `series.js` — tre copie identiche. In `movies.js` e `series.js` mancava inoltre `renderCards`, che veniva reinventata inline nell'`init()` di ciascun file.
+
+### Soluzione
+
+Creato `js/utils.js` con le due funzioni condivise:
+
+- `createCard(item, type)` — genera una card DOM con poster (o placeholder), titolo e anno
+- `renderCards(items, gridId, type)` — svuota il grid e appende le card
+
+`main.js`, `movies.js` e `series.js` ora contengono solo la loro funzione `init()`, senza duplicare logica DOM.
+
+### Ordine di caricamento degli script
+
+Tutti gli HTML caricano i file nell'ordine:
+
+```html
+<script src="js/config.js"></script>   <!-- API_KEY -->
+<script src="js/api.js"></script>      <!-- fetch functions -->
+<script src="js/utils.js"></script>    <!-- createCard, renderCards -->
+<script src="js/[pagina].js"></script> <!-- init() della pagina -->
+```
+
+`utils.js` deve precedere i file di pagina perché questi chiamano `renderCards` e `createCard` che devono già esistere nel global scope al momento dell'esecuzione.
+
+### Struttura JS finale
+
+```
+js/
+├── config.js   — API_KEY (escluso da Git)
+├── api.js      — funzioni fetch TMDB
+├── utils.js    — helper DOM condivisi (createCard, renderCards)
+├── main.js     — init() home
+├── movies.js   — init() pagina film
+├── series.js   — init() pagina serie
+└── detail.js   — init() pagina dettaglio
+```
