@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Serie — MovieApp</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html" class="logo">MovieApp</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="movies.html">Film</a></li>
+        <li><a href="series.html">Serie</a></li>
+        <li><a href="profile.html">Profilo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>Serie<br><em>popolari.</em></h1>
+      <p>Le serie più seguite del momento.</p>
+    </section>
+
+    <section class="content-section">
+      <h2>Serie popolari</h2>
+      <div class="card-grid" id="series-grid"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Dati forniti da <a href="https://www.themoviedb.org/" target="_blank">TMDB</a></p>
+    <p>Website by Corinna Buzzi</p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/series.js"></script>
+
+</body>
+</html>
