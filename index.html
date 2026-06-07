@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MovieApp</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
@@ -22,6 +25,11 @@
 
   <main>
 
+    <section class="hero">
+      <h1>Cinema,<br><em>ogni giorno.</em></h1>
+      <p>I contenuti più popolari del momento, aggiornati ogni giorno.</p>
+    </section>
+
     <section class="content-section">
       <h2>Film di tendenza</h2>
       <div class="card-grid" id="movies-grid"></div>
@@ -36,6 +44,7 @@
 
   <footer>
     <p>Dati forniti da <a href="https://www.themoviedb.org/" target="_blank">TMDB</a></p>
+    <p>Website by Corinna Buzzi</p>
   </footer>
 
   <script src="js/config.js"></script>
